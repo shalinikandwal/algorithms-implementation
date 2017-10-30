@@ -9,15 +9,14 @@ package leetcode;
  */
 public class TrimBinaryTree {
 
-    /**
-     * Definition for a binary tree node.
-     * public class TreeNode {
-     *     int val;
-     *     TreeNode left;
-     *     TreeNode right;
-     *     TreeNode(int x) { val = x; }
-     * }
-     */
+
+      public class TreeNode {
+          int val;
+          TreeNode left;
+          TreeNode right;
+          TreeNode(int x) { val = x; }
+      }
+
         public TreeNode trimBST(TreeNode root, int L, int R) {
             if(root == null) return root;
 

@@ -1,5 +1,8 @@
 package leetcode;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class reshapeMatrix {
 
     /**
@@ -14,7 +17,7 @@ public class reshapeMatrix {
             if(nums.length == 0 || nums.length * nums[0].length != r*c)
                 return nums;
             int count =0;
-            Queue <Integer> queue = new LinkedList < > ();
+            Queue<Integer> queue = new LinkedList<Integer>();
             for(int i = 0; i < nums.length; i++)
                 for(int j = 0; j< nums[0].length; j++){
                     queue.add(nums[i][j]);

@@ -1,9 +1,13 @@
 package leetcode;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Stack;
+
 public class NextGreaterElement {
 
     public int[] nextGreaterElement(int[] nums1, int[] nums2) {
-        Map<Integer, Integer> map = new HashMap<>();
+        Map<Integer, Integer> map = new HashMap<Integer,Integer>();
         Stack<Integer> stack = new Stack<Integer>();
 
         for(int num : nums2){
