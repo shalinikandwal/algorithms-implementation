@@ -42,7 +42,7 @@ public class MajorityElement2 {
     }
 
     public static void main(String[] args) {
-        List<Integer> list = majorityElement(new int[] {2,2,3,0});
+        List<Integer> list = majorityElement(new int[] {1,1,1,2,2,2,3,3,3});
 
         Iterator<Integer> it = list.iterator();
         while(it.hasNext()) System.out.println(it.next());
