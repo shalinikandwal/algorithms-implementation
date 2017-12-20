@@ -19,6 +19,7 @@ public class LONGESTSUBSTRING {
     }
 
     public static void main(String[] args) {
+
         System.out.println(lengthOfLongestSubstring("abcdbba"));
     }
 }
