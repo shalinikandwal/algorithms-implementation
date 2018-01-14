@@ -4,48 +4,28 @@ import java.util.*;
 
 public class FindAnagrams {
 
-        public static List<Integer> findAnagrams(String s, String t) {
-            List<Integer> result = new LinkedList<>();
-            if(t.length()> s.length()) return result;
-            Map<Character, Integer> map = new HashMap<>();
-            for(char c : t.toCharArray()){
-                map.put(c, map.getOrDefault(c, 0) + 1);
-            }
-            int counter = map.size();
+        public static List<Integer> findAnagrams(String s, String p) {
+            int [] freq = new int [256];
+            for (char c : p.toCharArray()) freq [c] ++;
 
-            int begin = 0, end = 0;
-            int head = 0;
-            int len = Integer.MAX_VALUE;
+            List<Integer> ans = new ArrayList<>();
+            int len = p.length();
 
-
-            while(end < s.length()){
-                char c = s.charAt(end);
-                if( map.containsKey(c) ){
-                    map.put(c, map.get(c)-1);
-                    if(map.get(c) == 0) counter--;
+            for (int idx = 0, start = 0; idx < s.length(); idx ++) {
+                char ch = s.charAt (idx);
+                if (freq [ch] -- <= 0) {
+                  while (start <= idx)
+                        if (freq [s.charAt(start ++)] ++ < 0) break;
                 }
-                end++;
-
-                while(counter == 0){
-                    char tempc = s.charAt(begin);
-                    if(map.containsKey(tempc)){
-                        map.put(tempc, map.get(tempc) + 1);
-                        if(map.get(tempc) > 0){
-                            counter++;
-                        }
-                    }
-                    if(end-begin == t.length()){
-                        result.add(begin);
-                    }
-                    begin++;
-                }
-
+                if (idx - start + 1 == len) ans.add (start);
             }
-            return result;
+            return ans;
         }
 
 
     public static void main(String[] args) {
-        System.out.println(findAnagrams("abbab","ab"));
+        findAnagrams("abbab","ab").forEach(System.out::println);
+//        System.out.println(findAnagrams("cacbde","abc"));
+//        System.out.println(findAnagrams("abbab","ab"));
     }
 }
