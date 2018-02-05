@@ -14,7 +14,7 @@ class Interval {
 public class MergeIntervals {
 
     public static void main(String[] args) {
-        Interval arr[] =  { new Interval(6,8), new Interval(1,9), new Interval(2,4), new Interval(4,7)};
+        Interval arr[] =  { new Interval(1,10), new Interval(1,9), new Interval(2,4), new Interval(4,7)};
         List<Interval> list = merge(Arrays.asList(arr));
         for (int i = 0 ; i < list.size() ; i++)
         System.out.println(list.get(i).start + " " + list.get(i).end);
@@ -25,7 +25,7 @@ public class MergeIntervals {
         List<Interval> ans = new ArrayList<>();
         for (int idx = 0; idx < intervals.size(); idx ++) {
             int start = intervals.get (idx).start, end = intervals.get (idx).end;
-            while (idx + 1 < intervals.size() && intervals.get (idx + 1).start <= end)
+            while (idx + 1 < intervals.size() && intervals.get (idx + 1).start <= intervals.get (idx).end)
                 end = Math.max (end, intervals.get (++ idx).end);
             ans.add (new Interval (start, end));
         }
